@@ -12,4 +12,8 @@ describe("test decimalNumberToRomanNumeralConverter function", () => {
   it("should return III for decimalNumberToRomanNumeralConverter(3)", () => {
     expect(decimalNumberToRomanNumeralConverter(3)).toBe("III");
   });
+
+  it("should return IV for decimalNumberToRomanNumeralConverter(4)", () => {
+    expect(decimalNumberToRomanNumeralConverter(4)).toBe("IV");
+  });
 });

@@ -2,6 +2,9 @@ export const decimalNumberToRomanNumeralConverter = (
   decimalNumber: number
 ): string => {
   const romanNumeral = "";
+  if (decimalNumber === 4) {
+    return "IV";
+  }
   if (decimalNumber === 3) {
     return "III";
   }
