@@ -8,4 +8,8 @@ describe("test romanNumeralToDecimalNumberToConverter function", () => {
   it('should return 2 for romanNumeralToDecimalNumberToConverter("II")', () => {
     expect(romanNumeralToDecimalNumberToConverter("II")).toBe(2);
   });
+
+  it('should return 3 for romanNumeralToDecimalNumberToConverter("III")', () => {
+    expect(romanNumeralToDecimalNumberToConverter("III")).toBe(3);
+  });
 });
