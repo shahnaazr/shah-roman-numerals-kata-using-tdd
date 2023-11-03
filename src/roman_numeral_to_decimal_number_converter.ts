@@ -20,16 +20,12 @@ export const romanNumeralToDecimalNumberToConverter = (
   for (let i = 0; i < romanNumeral.length; i++) {
     switch (romanNumeral[i]) {
       case "I":
-        if (romanNumeral.hasOwnProperty(i + 1)) {
-          if (romanNumeral[i + 1] === "V") {
-            arrayOfDecimalNumbers.push(FOUR);
-            i++;
-          } else if (romanNumeral[i + 1] === "X") {
-            arrayOfDecimalNumbers.push(NINE);
-            i++;
-          } else {
-            arrayOfDecimalNumbers.push(ONE);
-          }
+        if (romanNumeral[i + 1] === "V") {
+          arrayOfDecimalNumbers.push(FOUR);
+          i++;
+        } else if (romanNumeral[i + 1] === "X") {
+          arrayOfDecimalNumbers.push(NINE);
+          i++;
         } else {
           arrayOfDecimalNumbers.push(ONE);
         }
@@ -38,34 +34,26 @@ export const romanNumeralToDecimalNumberToConverter = (
         arrayOfDecimalNumbers.push(FIVE);
         break;
       case "X":
-        if (romanNumeral.hasOwnProperty(i + 1)) {
-          if (romanNumeral[i + 1] === "L") {
-            arrayOfDecimalNumbers.push(FOURTY);
-            i++;
-          } else if (romanNumeral[i + 1] === "C") {
-            arrayOfDecimalNumbers.push(NINETY);
-            i++;
-          } else {
-            arrayOfDecimalNumbers.push(TEN);
-          }
+        if (romanNumeral[i + 1] === "L") {
+          arrayOfDecimalNumbers.push(FOURTY);
+          i++;
+        } else if (romanNumeral[i + 1] === "C") {
+          arrayOfDecimalNumbers.push(NINETY);
+          i++;
         } else {
           arrayOfDecimalNumbers.push(TEN);
         }
         break;
       case "L":
-        arrayOfDecimalNumbers.push(50);
+        arrayOfDecimalNumbers.push(FIFTY);
         break;
       case "C":
-        if (romanNumeral.hasOwnProperty(i + 1)) {
-          if (romanNumeral[i + 1] === "D") {
-            arrayOfDecimalNumbers.push(FOUR_HUNDRED);
-            i++;
-          } else if (romanNumeral[i + 1] === "M") {
-            arrayOfDecimalNumbers.push(NINE_HUNDRED);
-            i++;
-          } else {
-            arrayOfDecimalNumbers.push(HUNDRED);
-          }
+        if (romanNumeral[i + 1] === "D") {
+          arrayOfDecimalNumbers.push(FOUR_HUNDRED);
+          i++;
+        } else if (romanNumeral[i + 1] === "M") {
+          arrayOfDecimalNumbers.push(NINE_HUNDRED);
+          i++;
         } else {
           arrayOfDecimalNumbers.push(HUNDRED);
         }
