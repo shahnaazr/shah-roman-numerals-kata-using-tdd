@@ -2,25 +2,26 @@ import { decimalToRomanNumeralTable } from "./decimal_to_roman_numeral_table";
 export const decimalNumberToRomanNumeralConverter = (
   decimalNumber: number
 ): string => {
-  const romanNumeral = "";
+  let romanNumeral = "";
 
-  const value = decimalToRomanNumeralTable.filter((innerArray) => {
-    innerArray[0] === decimalNumber;
-  });
-  if (decimalNumber === 5) {
-    return "V";
+  while (decimalNumber >= 9) {
+    romanNumeral = `${romanNumeral}IX`;
+    decimalNumber = decimalNumber - 9;
   }
-  if (decimalNumber === 4) {
-    return "IV";
+
+  while (decimalNumber >= 5) {
+    romanNumeral = `${romanNumeral}V`;
+    decimalNumber = decimalNumber - 5;
   }
-  if (decimalNumber === 3) {
-    return "III";
+
+  while (decimalNumber >= 4) {
+    romanNumeral = `${romanNumeral}IV`;
+    decimalNumber = decimalNumber - 4;
   }
-  if (decimalNumber === 2) {
-    return "II";
+  while (decimalNumber >= 1) {
+    romanNumeral = `${romanNumeral}I`;
+    decimalNumber = decimalNumber - 1;
   }
-  if (decimalNumber === 1) {
-    return "I";
-  }
+
   return romanNumeral;
 };
