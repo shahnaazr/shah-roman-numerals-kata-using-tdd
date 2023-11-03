@@ -3,6 +3,10 @@ export const romanNumeralToDecimalNumberToConverter = (
 ): number => {
   let decimalNumber = 0;
 
+  if (romanNumeral === "V") {
+    decimalNumber = 5;
+  }
+
   if (romanNumeral === "IV") {
     decimalNumber = 4;
   }

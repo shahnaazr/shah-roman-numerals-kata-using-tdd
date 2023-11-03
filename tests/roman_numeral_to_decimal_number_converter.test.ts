@@ -16,4 +16,8 @@ describe("test romanNumeralToDecimalNumberToConverter function", () => {
   it('should return 4 for romanNumeralToDecimalNumberToConverter("IV")', () => {
     expect(romanNumeralToDecimalNumberToConverter("IV")).toBe(4);
   });
+
+  it('should return 5 for romanNumeralToDecimalNumberToConverter("V")', () => {
+    expect(romanNumeralToDecimalNumberToConverter("V")).toBe(5);
+  });
 });
