@@ -1,4 +1,4 @@
-export const decimalToRomanNumeralTable = [
+export const decimalToRomanNumeralTable: Array<Array<any>> = [
   [1000, "M"],
   [900, "CM"],
   [500, "D"],
