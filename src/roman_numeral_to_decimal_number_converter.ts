@@ -1,66 +1,89 @@
 export const romanNumeralToDecimalNumberToConverter = (
   romanNumeral: string
 ): number => {
-  let decimalNumber = 0;
-  let arrayOfDecimalNumbers: number[] = [];
+  const arrayOfDecimalNumbers: number[] = [];
+
+  const ONE = 1;
+  const FOUR = 4;
+  const FIVE = 5;
+  const NINE = 9;
+  const TEN = 10;
+  const FOURTY = 40;
+  const FIFTY = 50;
+  const NINETY = 90;
+  const HUNDRED = 100;
+  const FOUR_HUNDRED = 400;
+  const FIVE_HUNDRED = 500;
+  const NINE_HUNDRED = 900;
+  const THOUSAND = 1000;
 
   for (let i = 0; i < romanNumeral.length; i++) {
-    if (romanNumeral[i] === "I") {
-      if (romanNumeral.hasOwnProperty(i + 1)) {
-        if (romanNumeral[i + 1] === "V") {
-          arrayOfDecimalNumbers.push(4);
-          i = i + 1;
-        } else if (romanNumeral[i + 1] === "X") {
-          arrayOfDecimalNumbers.push(9);
-          i = i + 1;
+    switch (romanNumeral[i]) {
+      case "I":
+        if (romanNumeral.hasOwnProperty(i + 1)) {
+          if (romanNumeral[i + 1] === "V") {
+            arrayOfDecimalNumbers.push(FOUR);
+            i++;
+          } else if (romanNumeral[i + 1] === "X") {
+            arrayOfDecimalNumbers.push(NINE);
+            i++;
+          } else {
+            arrayOfDecimalNumbers.push(ONE);
+          }
         } else {
-          arrayOfDecimalNumbers.push(1);
+          arrayOfDecimalNumbers.push(ONE);
         }
-      } else {
-        arrayOfDecimalNumbers.push(1);
-      }
-    } else if (romanNumeral[i] === "V") {
-      arrayOfDecimalNumbers.push(5);
-    } else if (romanNumeral[i] === "X") {
-      if (romanNumeral.hasOwnProperty(i + 1)) {
-        if (romanNumeral[i + 1] === "L") {
-          arrayOfDecimalNumbers.push(40);
-          i = i + 1;
-        } else if (romanNumeral[i + 1] === "C") {
-          arrayOfDecimalNumbers.push(90);
-          i = i + 1;
+        break;
+      case "V":
+        arrayOfDecimalNumbers.push(FIVE);
+        break;
+      case "X":
+        if (romanNumeral.hasOwnProperty(i + 1)) {
+          if (romanNumeral[i + 1] === "L") {
+            arrayOfDecimalNumbers.push(FOURTY);
+            i++;
+          } else if (romanNumeral[i + 1] === "C") {
+            arrayOfDecimalNumbers.push(NINETY);
+            i++;
+          } else {
+            arrayOfDecimalNumbers.push(TEN);
+          }
         } else {
-          arrayOfDecimalNumbers.push(10);
+          arrayOfDecimalNumbers.push(TEN);
         }
-      } else {
-        arrayOfDecimalNumbers.push(10);
-      }
-    } else if (romanNumeral[i] === "L") {
-      arrayOfDecimalNumbers.push(50);
-    } else if (romanNumeral[i] === "C") {
-      if (romanNumeral.hasOwnProperty(i + 1)) {
-        if (romanNumeral[i + 1] === "D") {
-          arrayOfDecimalNumbers.push(400);
-          i = i + 1;
-        } else if (romanNumeral[i + 1] === "M") {
-          arrayOfDecimalNumbers.push(900);
-          i = i + 1;
+        break;
+      case "L":
+        arrayOfDecimalNumbers.push(50);
+        break;
+      case "C":
+        if (romanNumeral.hasOwnProperty(i + 1)) {
+          if (romanNumeral[i + 1] === "D") {
+            arrayOfDecimalNumbers.push(FOUR_HUNDRED);
+            i++;
+          } else if (romanNumeral[i + 1] === "M") {
+            arrayOfDecimalNumbers.push(NINE_HUNDRED);
+            i++;
+          } else {
+            arrayOfDecimalNumbers.push(HUNDRED);
+          }
         } else {
-          arrayOfDecimalNumbers.push(100);
+          arrayOfDecimalNumbers.push(HUNDRED);
         }
-      } else {
-        arrayOfDecimalNumbers.push(100);
-      }
-    } else if (romanNumeral[i] === "D") {
-      arrayOfDecimalNumbers.push(500);
-    } else if (romanNumeral[i] === "M") {
-      arrayOfDecimalNumbers.push(1000);
+        break;
+      case "D":
+        arrayOfDecimalNumbers.push(FIVE_HUNDRED);
+        break;
+      case "M":
+        arrayOfDecimalNumbers.push(THOUSAND);
+        break;
+      default:
+        throw new Error(
+          `The roman numeral value provided is incorrect${romanNumeral}`
+        );
     }
   }
 
-  decimalNumber = arrayOfDecimalNumbers.reduce((accumulator, currentValue) => {
+  return arrayOfDecimalNumbers.reduce((accumulator, currentValue) => {
     return accumulator + currentValue;
   }, 0);
-
-  return decimalNumber;
 };

@@ -104,4 +104,10 @@ describe("test romanNumeralToDecimalNumberToConverter function", () => {
   it('should return 2012 for romanNumeralToDecimalNumberToConverter("MMXII")', () => {
     expect(romanNumeralToDecimalNumberToConverter("MMXII")).toBe(2012);
   });
+
+  it('should throw an error for romanNumeralToDecimalNumberToConverter("MMRJ")', () => {
+    expect(() => {
+      romanNumeralToDecimalNumberToConverter("MMRJ");
+    }).toThrow();
+  });
 });
