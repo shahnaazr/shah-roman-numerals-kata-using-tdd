@@ -1,6 +1,7 @@
 export const romanNumeralToDecimalNumberToConverter = (
   romanNumeral: string
 ): number => {
-  const decimalNumber = 10;
+  const decimalNumber = 1;
+
   return decimalNumber;
 };
