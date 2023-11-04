@@ -100,4 +100,16 @@ describe("test decimalNumberToRomanNumeralConverter function", () => {
   it("should return MMMX for decimalNumberToRomanNumeralConverter(3010)", () => {
     expect(decimalNumberToRomanNumeralConverter(3010)).toBe("MMMX");
   });
+
+  it("should throw an error for decimalNumberToRomanNumeralConverter(-5)", () => {
+    expect(() => {
+      decimalNumberToRomanNumeralConverter(-5);
+    }).toThrow();
+  });
+
+  it("should throw an error for decimalNumberToRomanNumeralConverter(0)", () => {
+    expect(() => {
+      decimalNumberToRomanNumeralConverter(0);
+    }).toThrow();
+  });
 });
